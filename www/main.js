@@ -556,7 +556,7 @@ function initModMap(callback){
 
 $(document).ready(function(){
   initUI();
-  $('div#roomname').text('新 东 方 故 事 Ⅱ');
+  $('div#roomname').text('西 游 记');
 
   setTimeout(function(){
     adjustLayout();
