@@ -257,7 +257,10 @@ function writeToScreen(str, which) {
 
 function connectServer() {
   // websocket
-  var sock = io.connect();
+  var sock = io.connect("", {
+    path: window.location.pathname +'socket.io'
+  });
+  
   sock.on('stream', function(buf){
     writeServerData(buf);
   });
