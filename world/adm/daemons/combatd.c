@@ -3,7 +3,7 @@
  
 // combatd.c
 
-#pragma optimize
+//#pragma optimize
 
 #include <ansi.h>
 #include <skill.h>

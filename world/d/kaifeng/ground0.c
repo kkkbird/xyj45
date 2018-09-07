@@ -3,7 +3,7 @@
  
 // create by snowcat.c 2/8/1997
 
-#include <ground.h>
+#include "ground.h"
 
 object my_room = 0;
 object this_room ()

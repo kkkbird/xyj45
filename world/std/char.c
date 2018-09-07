@@ -3,7 +3,7 @@
  
 // char.c
 
-#pragma save_binary
+//#pragma save_binary
 
 #include <action.h>
 #include <ansi.h>

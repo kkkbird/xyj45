@@ -142,22 +142,18 @@ int do_ding(string arg)
 }
 int check_legal_name(string name)
 {
-        int i;
-        i = strlen(name);
-        if( (strlen(name) < 2) || (strlen(name) > 40 ) ) {
-                write("对不起，中文名字必须是一到二十个中文字。\n");
-                return 0;
-        }
-        while(i--) {
-                if( name[i]<=' ' ) {
-                        write("对不起，中文名字不能用控制字元。\n");
-                        return 0;
-                }
-                if( i%2==0 && !is_chinese(name[i..<0]) ) {
-                        write("对不起，名字必需是中文。\n");
-                        return 0;
-                }
-        }
+        int i = utf8_length(name);
+
+	if(i < 1 || i > 20){
+		write("对不起，中文名字必须是一到二十个中文字。\n");
+	 	return 0;	
+	}
+
+	if(!is_chinese(name)){
+		write("对不起，名字必需是中文。\n");
+		return 0;
+	}
+
         return 1;
 }
 

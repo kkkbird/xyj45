@@ -101,8 +101,8 @@ varargs void printf (string msg, mixed a1, mixed a2, mixed a3, mixed a4,
 
 int notify_fail (mixed arg)
 {
-    if (stringp(arg))
-        arg = (string) CONVERT_D->output(arg,this_player());
+    // if (stringp(arg))
+    //     arg = (string) CONVERT_D->output(arg,this_player());
     return efun::notify_fail (arg);
 }
 

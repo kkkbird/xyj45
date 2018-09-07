@@ -31,7 +31,7 @@ string process_input(string str)
                             // will not show it correctly.
                             // mon 5/12/98
           
-   str = CONVERT_D->input(str,this_object());
+   //str = CONVERT_D->input(str,this_object());
 
 // by mon 7/19/97. command counting.
         cmd_cnt++;

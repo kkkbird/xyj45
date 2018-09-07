@@ -250,25 +250,17 @@ int check_legal_id(string id)
 
 int check_legal_name(string name, int max_len)
 {
-   int i;
-   string   *legalname;     //not implemented..may add later
-   
-   i = strlen(name);
-    if( (strlen(name) < 2) || (strlen(name) > max_len ) ) {
-       write( sprintf("对不起，法宝中文字必须是 1 到 %d 个中文字。\n",
-        max_len/2) );
-     return 0;
-    }
-    while(i--)   {
-       if( name[i]<=' ' )   {
-         write("对不起，法宝中文字不能用控制字元。\n");
-         return 0;
-       }
-       if( i%2==0 && !is_chinese(name[i..<0]) )  {
-         write("对不起，请您用「中文」给法宝取名字。\n");
-         return 0;
-       }
-    }
+      int i = utf8_length(name);
+
+	if(i < 1 || i > max_len){
+		write( sprintf("对不起，法宝中文字必须是 1 到 %d 个中文字。\n", max_len) );
+	 	return 0;	
+	}
+
+	if(!is_chinese(name)){
+		write("对不起，请您用「中文」给法宝取名字。\n");
+		return 0;
+	}
    
     return 1; 
 }
@@ -314,11 +306,11 @@ void get_name(string arg, object ob)
         arg = replace_string(arg, "$HIW$", "");
         arg = replace_string(arg, "$NOR$", "");
 
-   if( !check_legal_name(arg, 12) )  {
-        write("请设定中文名：(可加颜色)");
-     input_to( (: get_name :), ob);
-     return;
-   }
+	if( !check_legal_name(arg, 6) )  {
+ 	    write("请设定中文名：(可加颜色)");
+		input_to( (: get_name :), ob);
+		return;
+	}
 
    arg = arg_old;
 
@@ -348,11 +340,11 @@ void get_name(string arg, object ob)
 
 void get_desc(string arg, object ob)
 {
-   if( !check_legal_name(arg, 60) )  {
-     write("请描述法宝：");
-     input_to( (: get_desc :), ob);
-     return;
-   }
+	if( !check_legal_name(arg, 30) )  {
+		write("请描述法宝：");
+		input_to( (: get_desc :), ob);
+		return;
+	}
 
    ob->set_temp("fabao_desc",  arg);
    
@@ -368,10 +360,10 @@ void get_unit(string arg, object ob)
 
     if( arg == "" )
        fabao_unit = "";
-   else if( !check_legal_name(arg, 2) )  {
-       write("法宝用量词：(Return for defult)");
-      input_to( (: get_unit :), ob);
-      return;
+	else if( !check_legal_name(arg, 1) )  {
+ 	   write("法宝用量词：(Return for defult)");
+	   input_to( (: get_unit :), ob);
+	   return;
     }
     else
        fabao_unit = arg; 
@@ -1284,7 +1276,7 @@ int  do_change_name(string arg)
         arg = replace_string(arg, "$HIW$", "");
         arg = replace_string(arg, "$NOR$", "");
         
-   if( !check_legal_name(arg, 12) )   {
+   if( !check_legal_name(arg, 6) )   {
       return 1; 
    }
   
@@ -1373,7 +1365,7 @@ int  do_change_desc(string arg)
    if( fabao_ob->query("equipped") )
       return notify_fail("你必须放下法宝才能改名。\n");
 
-   if( !check_legal_name(newname, 60 ) )     return 1;
+   if( !check_legal_name(newname, 30 ) )		return 1;
    
    fabao_ob->set("long", newname);
    fabao_ob->save();
@@ -1402,7 +1394,7 @@ int  do_change_unit(string arg)
    if( fabao_ob->query("equipped") )
       return notify_fail("你必须放下法宝才能改名。\n");
 
-   if( !check_legal_name(newname, 2 ) )     return 1;
+   if( !check_legal_name(newname, 1 ) )		return 1;
    
    fabao_ob->set("unit", newname);
    fabao_ob->save();

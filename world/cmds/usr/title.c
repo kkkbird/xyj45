@@ -28,10 +28,10 @@ int main(object me, string arg)
    }
 
    if(me->query("combat_exp") >= 500000){
-     titlelength=8;
+     titlelength=4;
    }
    else if(me->query("combat_exp") >= 100000){
-     titlelength=4;
+     titlelength=2;
    }
    else titlelength=0;
    
@@ -44,30 +44,22 @@ int main(object me, string arg)
  
 int check_legal_title(string addtitle, int titlelength)
 {
-          int i;
+  int i = utf8_length(addtitle);
 
-   i = strlen(addtitle);
+  if(titlelength<=0){
+    write("对不起，目前你还不能给自己设头衔。\n");
+    return 0;
+  }
 
-   if(titlelength<=0){
-     write("对不起，目前你还不能给自己设头衔。\n");
-         return 0;
-   }
+  if(titlelength < i){    
+    write(sprintf("对不起，目前你最多只能设 %d 个中文字作为头衔。\n", titlelength));
+    return 0;
+  }
 
-   if(titlelength < strlen(addtitle)){
-         printf("对不起，目前你最多只能设%s个中文字作为头衔。\n", chinese_number(titlelength/2));
-         return 0;
-   }
-
-   while(i--) {
-                  if( addtitle[i]<=' ' ) {
-                          write("对不起，你的头衔不能用控制字元。\n");
-                          return 0;
-                  }
-                  if( i%2==0 && !is_chinese(addtitle[i..<0]) ) {
-                          write("对不起，请您用「中文」设头衔。\n");
-                          return 0;
-                  }
-          }
+	if(!is_chinese(addtitle)){
+		write("对不起，请您用「中文」设头衔。\n");
+		return 0;
+	}
 
    return 1;
 }

@@ -5,7 +5,7 @@
 
 // 4/24/98 mon adds max_items related stuff.
 
-#pragma optimize
+//#pragma optimize
 
 #include <dbase.h>
 #include <room.h>
@@ -198,37 +198,7 @@ varargs int _move(mixed dest, int silently)
   if (silently==2 || this_object() -> query("env/brief_all"))
    tell_object(this_object(), environment()->query("short") ? environment()->query("short")+"\n": "\n");
   else {
-   str = sprintf( "%s - %s\n  %s%s",
-    environment()->query("short") ? environment()->query("short"): "",
-    wizardp(me)? file_name(environment()): "",
-    ( (!this_object() -> query("env/brief")) && (environment()->query("long")) ) ? environment()->query("long"): "",
-    ( (!this_object() -> query("env/brief")) && (environment()->query("outdoors")) ) ? NATURE_D->outdoor_room_description(): "");
-
-      if( mapp(exits = environment()->query("exits")) ) {
-          dirs = keys(exits);
-          for(i=0; i<sizeof(dirs); i++)
-              if( (int)environment()->query_door(dirs[i], "status") & DOOR_CLOSED )
-                  dirs[i] = 0;
-        dirs -= ({ 0 });
-          if( sizeof(dirs)==0 )
-              str += "  这里没有任何明显的出路。\n";
-          else if( sizeof(dirs)==1 )
-              str += "  这里唯一的出口是 " + BOLD + dirs[0] + NOR + "。\n";
-          else
-              str += sprintf("  这里明显的出口是 " + BOLD + "%s" + NOR + " 和 " + BOLD + "%s" + NOR + "。\n",
-          implode(dirs[0..sizeof(dirs)-2], "、"), dirs[sizeof(dirs)-1]);
-      }
-      inv = all_inventory(environment());
-      i=sizeof(inv);
-      while(i--) {
-          if( !me->visible(inv[i]) ) continue;
-          if( inv[i]==me ) continue;
-          if (ridemsg = ride_suffix(inv[i]))
-              str1 = " " + inv[i]->short() + " <"+ridemsg +">\n"+str1;
-          else
-              str1 = " " + inv[i]->short() + "\n"+str1;
-      }
-   tell_object(this_object(), str+str1);
+    command("look");   
   }
 
     // the following is made by snowcat on 6/20/1997

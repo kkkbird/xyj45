@@ -60,7 +60,7 @@ void receive_message(string type, string str)
 {
    if( type!= "write" ) return;
    
-   str = CONVERT_D->output(str,this_object());
+   //str = CONVERT_D->output(str,this_object());
 
    receive(str);
 }

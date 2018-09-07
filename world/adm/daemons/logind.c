@@ -13,7 +13,7 @@ inherit F_DBASE;
 
 int wiz_lock_level = WIZ_LOCK_LEVEL;
 string *banned_name = ({
-   "你", "我", "他", "她", "它",
+	"你", "我", "他", "她", "它", "江泽民", "邓小平", "李鹏", "朱榕基","习近平","温家宝","胡锦涛",
 });
 
 string *default_name=({"猴子","狐狸", "老鼠", 
@@ -73,13 +73,13 @@ int total_players()
 }
 
 void logon(object ob)
-{
-    
-    cat(BANNER);
-    write("            西游记欢迎您来访！使用国标码的玩家请键入：gb\n");
-    write("            ﹁村癘舧�锉zㄓ砐�Iㄏノ�jき絏�邯碑a叫龄�J�Gbig5\n");
-    write("            Welcome to Xi You Ji! Select GB or BIG5 (gb/big5):");
-    input_to( (: encoding :), ob );
+{    
+    encoding("gb",ob);
+    // cat(BANNER);
+    // write("            西游记欢迎您来访！使用国标码的玩家请键入：gb\n");
+    // write("            ﹁村癘舧�锉zㄓ砐�Iㄏノ�jき絏�邯碑a叫龄�J�Gbig5\n");
+    // write("            Welcome to Xi You Ji! Select GB or BIG5 (gb/big5):");
+    // input_to( (: encoding :), ob );
 }
 
 private void encoding(string arg, object ob)
@@ -104,10 +104,10 @@ private void encoding(string arg, object ob)
        return;
    }
    
-   if(encode==0)
-       write("\nUse GB encoded Chinese.\n");
-   else
-       write("\nUse BIG5 encoded Chinese.\n");
+  //  if(encode==0)
+  //      write("\nUse GB encoded Chinese.\n");
+  //  else
+  //      write("\nUse BIG5 encoded Chinese.\n");
    
    ob->set_encoding(encode);
 
@@ -416,7 +416,7 @@ private void get_name(string arg, object ob)
        }
    }
 
-   printf("%O\n", ob);
+   //printf("%O\n", ob);
    ob->set("name", arg);
    write("请设定您的密码：");
    input_to("new_password", 1, ob);
@@ -739,28 +739,22 @@ int check_legal_id(string id)
 
 int check_legal_name(string name)
 {
-   int i;
+	int i = utf8_length(name);
 
-   i = strlen(name);
-   
-   if( (strlen(name) < 2) || (strlen(name) > 12 ) ) {
-     write("对不起，你的中文名字必须是 1 到 6 个中文字。\n");
-     return 0;
-   }
-   while(i--) {
-     if( name[i]<=' ' ) {
-        write("对不起，你的中文名字不能用控制字元。\n");
-        return 0;
-     }
-     if( i%2==0 && !is_chinese(name[i..<0]) ) {
-        write("对不起，请您用「中文」取名字。\n");
-        return 0;
-     }
-   }
-   if( member_array(name, banned_name)!=-1 ) {
-     write("对不起，这种名字会造成其他人的困扰。\n");
-     return 0;
-   }
+	if(i < 1 || i > 6){
+		write("对不起，你的中文名字必须是一到六个中文字。\n");
+	 	return 0;	
+	}
+
+	if(!is_chinese(name)){
+		write("对不起，请您用「中文」取名字。\n");
+		return 0;
+	}	
+
+	if( member_array(name, banned_name)!=-1 ) {
+		write("对不起，这种名字会造成其他人的困扰。\n");
+		return 0;
+	}
 
    return 1;
 }

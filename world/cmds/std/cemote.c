@@ -57,13 +57,9 @@ HELP
 
 int check_legal_name(string name)
 {
-        int i;
-        i = strlen(name);
-        while(i--) {
-                if( i%2==0 && !is_chinese(name[i..<0]) ) {
-                        write("对不起，请您用中文。\n");
-                        return 0;
-                }
-        }
+        if(!is_chinese(name)){
+		write("对不起，请您用中文。\n");
+		return 0;
+	}        
 	return 1;
 }

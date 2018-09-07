@@ -3,7 +3,7 @@
  
 // room.c
 
-#pragma save_binary
+//#pragma save_binary
 
 #include <dbase.h>
 #include <room.h>

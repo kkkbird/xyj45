@@ -3,7 +3,7 @@
  
 /* rewritten by Snowcat */
 
-#pragma optimize
+//#pragma optimize
 
 inherit F_DBASE;
 

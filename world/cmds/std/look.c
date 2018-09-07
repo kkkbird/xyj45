@@ -117,7 +117,7 @@ int look_room(object me, object env)
      write("你的四周灰蒙蒙地一片，什么也没有。\n");
      return 1;
    }
-   str = sprintf( "%s - %s\n    %s%s",
+   str = sprintf( "\n▲ %s - %s\n    %s%s",
      env->query("short")?env->query("short"): "",
      wizardp(me)? file_name(env): "",
      env->query("long")? env->query("long"): "\n",

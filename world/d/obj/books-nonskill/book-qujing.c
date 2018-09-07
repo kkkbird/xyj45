@@ -4,7 +4,7 @@
 inherit ITEM;
 
 #include <ansi.h>
-#include </d/qujing/obstacle.h>
+#include <obstacle.h>
 
 int do_read(string arg);
 void create()

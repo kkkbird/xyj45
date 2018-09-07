@@ -176,25 +176,17 @@ int check_legal_id(string id)
 
 int check_legal_name(string name, int max_len)
 {
-   int i;
-   string   *legalname;     //not implemented..may add later
-   
-   i = strlen(name);
-    if( (strlen(name) < 3) || (strlen(name) > max_len ) ) {
-       write( sprintf("对不起，法宝中文名字必须是 2 到 %d 个中文字。\n",
-        max_len/2) );
-     return 0;
-    }
-    while(i--)   {
-       if( name[i]<=' ' )   {
-         write("对不起，法宝中文名字不能用控制字元。\n");
-         return 0;
-       }
-       if( i%2==0 && !is_chinese(name[i..<0]) )  {
-         write("对不起，请您用「中文」给法宝取名字。\n");
-         return 0;
-       }
-    }
+	int i = utf8_length(name);
+
+	if(i < 2 || i > max_len){
+		write( sprintf("对不起，法宝中文名字必须是 2 到 %d 个中文字。\n", max_len) );
+	 	return 0;	
+	}
+
+	if(!is_chinese(name)){
+		write("对不起，请您用「中文」给法宝取名字。\n");
+		return 0;
+	}
    
     return 1; 
 }
@@ -238,11 +230,11 @@ void get_name(string arg, object ob)
         arg = replace_string(arg, "$HIW$", "");
         arg = replace_string(arg, "$NOR$", "");
 
-   if( !check_legal_name(arg, 8) )  {
-     write("请设定中文名：");
-     input_to( (: get_name :), ob);
-     return;
-   }
+	if( !check_legal_name(arg, 4) )  {
+		write("请设定中文名：");
+		input_to( (: get_name :), ob);
+		return;
+	}
 
    arg = arg_old;
 
@@ -272,19 +264,19 @@ void get_name(string arg, object ob)
 
 void get_desc(string arg, object ob)
 {
-   if( !check_legal_name(arg, 40) )  {
-     write("请描述法宝：");
-     input_to( (: get_desc :), ob);
-     return;
-   }
-   
-   fabao_desc = arg;
-   
-   if( fabao_type == "weapon" )
-     build_weapon(ob);   
-   else if( fabao_type == "armor" )
-     build_armor(ob);   
-   // may have more later
+	if( !check_legal_name(arg, 20) )  {
+		write("请描述法宝：");
+		input_to( (: get_desc :), ob);
+		return;
+	}
+	
+	fabao_desc = arg;
+	
+	if( fabao_type == "weapon" )
+		build_weapon(ob);	
+	else if( fabao_type == "armor" )
+		build_armor(ob);	
+	// may have more later
 }
 
 void build_weapon(object ob)

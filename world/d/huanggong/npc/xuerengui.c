@@ -3,7 +3,7 @@
  
 inherit NPC;
 
-#include <greeting.h>
+#include "/d/huanggong/npc/greeting.h"
 
 void create()
 {
