@@ -1,7 +1,7 @@
 #/d/city/npc/xiaoxiao.c
-dbase (["force_factor":5,"cps":11,"str":30,"eff_gin":408,"unit":"Î»","kar":23,"eff_sen":408,"gender":"Å®ĞÔ","name":"ÏôÏô","age":25,"id":"xiao xiao","can_speak":1,"max_gin":408,"max_force":200,"default_actions":,"title":"¶ñÄï×Ó","limbs":({"Í·²¿","¾±²¿","ĞØ¿Ú","ºóĞÄ","×ó¼ç","ÓÒ¼ç","×ó±Û","ÓÒ±Û","×óÊÖ","ÓÒÊÖ","Ñü¼ä","Ğ¡¸¹","×óÍÈ","ÓÒÍÈ","×ó½Å","ÓÒ½Å",}),"actions":,"gin":408,"vendor_goods":(["hammer":"/d/obj/weapon/hammer/tongchui","blade":"/d/obj/weapon/blade/blade","shield":"/d/obj/armor/niupi","staff":"/d/obj/weapon/staff/chanzhang","sword":"/d/obj/weapon/sword/changjian","spear":"/d/obj/weapon/spear/tieqiang",]),"combat_exp":70000,"max_sen":408,"long":"ÀÏÓ¢ĞÛÏôÕñÔ¶µÄĞ¡Å®¶ù£¬±øÆ÷ÆÌÅ®ÀÏ°å¡£
-ÓÉÓÚĞ×Âùºİ¶¾£¬½­ºşÈË³Æ£¢¶ñÄï×Ó£¢¡£
-","kee":304,"max_kee":304,"eff_kee":304,"per":17,"attitude":"peaceful","spi":28,"race":"ÈËÀà","startroom":"/d/city/bingqipu","con":14,"force":200,"sen":408,"cor":23,"int":14,])
+dbase (["force_factor":5,"cps":11,"str":30,"eff_gin":408,"unit":"ä½","kar":23,"eff_sen":408,"gender":"å¥³æ€§","name":"è§è§","age":25,"id":"xiao xiao","can_speak":1,"max_gin":408,"max_force":200,"default_actions":,"title":"æ¶å¨˜å­","limbs":({"å¤´éƒ¨","é¢ˆéƒ¨","èƒ¸å£","åå¿ƒ","å·¦è‚©","å³è‚©","å·¦è‡‚","å³è‡‚","å·¦æ‰‹","å³æ‰‹","è…°é—´","å°è…¹","å·¦è…¿","å³è…¿","å·¦è„š","å³è„š",}),"actions":,"gin":408,"vendor_goods":(["hammer":"/d/obj/weapon/hammer/tongchui","blade":"/d/obj/weapon/blade/blade","shield":"/d/obj/armor/niupi","staff":"/d/obj/weapon/staff/chanzhang","sword":"/d/obj/weapon/sword/changjian","spear":"/d/obj/weapon/spear/tieqiang",]),"combat_exp":70000,"max_sen":408,"long":"è€è‹±é›„è§æŒ¯è¿œçš„å°å¥³å„¿ï¼Œå…µå™¨é“ºå¥³è€æ¿ã€‚
+ç”±äºå‡¶è›®ç‹ æ¯’ï¼Œæ±Ÿæ¹–äººç§°ï¼‚æ¶å¨˜å­ï¼‚ã€‚
+","kee":304,"max_kee":304,"eff_kee":304,"per":17,"attitude":"peaceful","spi":28,"race":"äººç±»","startroom":"/d/city/bingqipu","con":14,"force":200,"sen":408,"cor":23,"int":14,])
 skills (["moondance":50,"fonxansword":30,"parry":50,"dodge":50,"sword":50,"unarmed":50,])
 learned (["moondance":0,"fonxansword":0,"parry":0,"dodge":0,"sword":0,"unarmed":0,])
 skill_map (["parry":"fonxansword","sword":"fonxansword","dodge":"moondance",])

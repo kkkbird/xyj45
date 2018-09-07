@@ -5,16 +5,16 @@ inherit F_MASTER;
 
 void create()
 {
-	set_name("ª÷áp", ({ "mastress assassin", "mastress", "assassin" }) );
+	set_name("éº½p", ({ "mastress assassin", "mastress", "assassin" }) );
 
-	set("gender", "¤k©Ê");
+	set("gender", "kâ”¦");
 	set("age", 29);
 	set("attitude", "peaceful");
 
 	set("str", 26);
 	set("int", 24);
 
-	create_family("¤ë¤ú¯«±Ğ", 25, "¸t¤k");
+	create_family("ã‚‹æ¯™", 25, "ç«§k");
 
 	set("force", 1800);
 	set("max_force", 1800);
@@ -56,8 +56,8 @@ void attempt_apprentice(object me)
 {
 	command("look " + me->query("id"));
 	if( me->can_afford(100) ) {
-		command("say §Ú­Ìªáµµ·|¥u¦¬¤Æ¤l¡M" + RANK_D->query_respect(me)
-			+ "±zÁÙ¬O¦^¥h¨ÉºÖ§a¡C\n");
+		command("say Ğ¸é…å²¬æ£|uÎœã¦lM" + RANK_D->query_respect(me)
+			+ "çœ¤ä¸´çŒ^hã„‰è¤aC\n");
 		return;
 	} else {
 		command("nod");

@@ -1,6 +1,6 @@
 inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
-	return notify_fail("你现在忙得很，没空做任何事！！\n");
+	return notify_fail("娴ｇ姷骞囬崷銊ョ箹瀵版绶㈤敍灞剧梾缁屽搫浠涙禒璁崇秿娴滃绱掗敍涔梟");
 	return 1;
 }

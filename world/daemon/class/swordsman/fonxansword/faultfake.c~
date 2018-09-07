@@ -13,12 +13,12 @@ int perform (object me, object target)
         if( !target ) target = offensive_target(me);
 	
         if( !target || !target->is_character() || !me->is_fighting(target) )
-		return notify_fail("'È±¡®×Ö¾÷Ö»ÄÜÔÚÕ½¶·ÖĞÊ¹ÓÃ¡£\n");
+		return notify_fail("'ç¼ºâ€˜å­—è¯€åªèƒ½åœ¨æˆ˜æ–—ä¸­ä½¿ç”¨ã€‚\n");
 
-	msg  = CYN "$N×óÊÖÄóÁË¸ö'È±¡®×Ö¾÷£¬½£¹â¾¹É¢ÂÒ¿ª£¬ÓÕÊ¹$n½øÕĞ£¬";
+	msg  = CYN "$Nå·¦æ‰‹æäº†ä¸ª'ç¼ºâ€˜å­—è¯€ï¼Œå‰‘å…‰ç«Ÿæ•£ä¹±å¼€ï¼Œè¯±ä½¿$nè¿›æ‹›ï¼Œ";
 
 	if (random(me->query("combat_exp")) > random (target->query("combat_exp")/2) ) {
-		msg += "\n$p¿´¼û»ú»á£¬Á¢¿Ì·ÅÊÖ½ø¹¥.\n" NOR;
+		msg += "\n$pçœ‹è§æœºä¼šï¼Œç«‹åˆ»æ”¾æ‰‹è¿›æ”».\n" NOR;
 	
 	        skill = me->query_skill("sword");
 		me->add_temp("apply/attack", skill/3);
@@ -31,7 +31,7 @@ int perform (object me, object target)
         	return 1;
 		}
 	
-	msg += "\n¿ÉÊÇ$p¿´ÆÆÁË$PµÄÆóÍ¼£¬²¢Ã»ÓĞÉÏµ±¡£\n" NOR;
+	msg += "\nå¯æ˜¯$pçœ‹ç ´äº†$Pçš„ä¼å›¾ï¼Œå¹¶æ²¡æœ‰ä¸Šå½“ã€‚\n" NOR;
         message_vision(msg, me, target);
 	return 1;
 }

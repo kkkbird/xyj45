@@ -13,5 +13,5 @@ void skill_improved(object me)
 
 int practice_skill(object me)
 {       
-        return notify_fail("法术类技能必须用学的或是从实战中获取经验。\n");
+        return notify_fail("濞夋洘婀崇猾缁樺Η閼宠棄绻�妞よ崵鏁ょ�涳妇娈戦幋鏍ㄦЦ娴犲骸鐤勯幋妯硅厬閼惧嘲褰囩紒蹇涚崣閵嗕繐n");
 }

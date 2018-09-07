@@ -13,19 +13,19 @@ int perform(object me, object target)
 	if( !target
 	||	!target->is_character()
 	||	!me->is_fighting(target) )
-		return notify_fail("²o¨î§ğÀ»¥u¯à¹ï¾Ô°«¤¤ªº¹ï¤â¨Ï¥Î¡C\n");
+		return notify_fail("ç£çŒé¹„äº’uå–™é”å›­ã„æ±—é“¯çŒ•è†å·C\n");
 
 	if( target->is_busy() )
-		return notify_fail(target->name() + "¥Ø«e¥¿¦ÛÅU¤£·v¡M©ñÁx§ğÀ»§a¡T\n");
+		return notify_fail(target->name() + "ãƒ˜ç¡ã‚¿åŸUãƒç© Mçª³xÑé˜‘aT\n");
 
-	msg = CYN "$N¨Ï¥X«Ê¤s¼Cªk¡u«Ê¡v¦r³Z¡M³s»¼¼Æ­Óµê©Û¥ø¹ÏÂZ¶Ã$nªº§ğ¶Õ¡M";
+	msg = CYN "$Nã„Xèƒœsç³ƒçŒ­uçœvrç •Mç¡ˆæ‚£è®¡æ‹¥æˆ›é‚¾ç“œè€‘ç¹$néª‡é¸²é“¡M";
 
 	me->start_busy(1);
 	if( random(me->query("combat_exp")) > (int)target->query("combat_exp")/2 ) {
-		msg += "µ²ªG$p³Q$P§ğ¤F­Ó±¹¤â¤£¤Î¡T\n" NOR;
+		msg += "æŒ¡ç‹¦$pç †$PÑFé¢–å·¥çŒ¡ï¿¥å·T\n" NOR;
 		target->start_busy( (int)me->query_skill("fonxansword") / 20 + 2);
 	} else {
-		msg += "¥i¬O$p¬İ¯}¤F$Pªº¥ø¹Ï¡M¨Ã¨S¦³¤W·í¡C\n" NOR;
+		msg += "içŒ$pèœ}F$Päº¥ç“œMçŒ«SÎ¤Wè®½C\n" NOR;
 	}
 	message_vision(msg, me, target);
 

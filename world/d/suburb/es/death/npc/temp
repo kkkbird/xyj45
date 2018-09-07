@@ -6,25 +6,25 @@
 inherit NPC;
 
 string *death_msg = ({
-	HIW "¥ÕµL±`»¡¹D¡R³Ş¡T·s¨Óªº¡M§A¥s¤°»ò¦W¦r¡S\n\n" NOR,
-	HIW "¥ÕµL±`¥Î©_²§ªº²´¥ú¨nµÛ§A¡M¦n¹³­n¬İ¬ï§Aªº¤@¤Á¦üªº¡C\n\n" NOR,
-	HIW "¥ÕµL±`¡u­ó¡vªº¤@Án¡M±q³S¤¤±Ç¥X¤@¥»¹³±b¥UªºªF¦èÂ½¬İµÛ¡C\n\n" NOR,
-	HIW "¥ÕµL±`»×¤W¥U¤l¡M»¡¹D¡R«x¡S¶§¹Ø¥¼ºÉ¡S«ç»ò¥i¯à¡S\n\n" NOR,
-	HIW "¥ÕµL±`·k¤F·kÀY¡M¼Û¹D¡R½}¤F½}¤F¡M§A¨«§a¡C\n\n"
-		"¤@ªÑ³±§Nªº¿@Ãú¬ğµM¥X²{¡M«Ü§Ö¦a¥]³ò¤F§A¡C\n\n" NOR,
+	HIW "ãƒ•ç¤šç›½å¼§ç¬µRä¾ˆTç©ã„“éª¸MAsãæˆ–WrS\n\n" NOR,
+	HIW "ãƒ•ç¤šç›½ãƒ_é’µç¿°è§¦â•ªå¸AMné’©ç’¶è é“µAæ°¦@ã¡éª¸C\n\n" NOR,
+	HIW "ãƒ•ç¤šç›½uèŸ†væ°¦@ç¾˜Mçœ–ç ˆã„é¼»X@ã‚»é’©çœ€Ué‚¯Fï¹é™†è¸é‚¸C\n\n" NOR,
+	HIW "ãƒ•ç¤šç›½è›”WUlMå¼§ç¬µRç¿Sé”­å…³ã‚¼è·Sç¼é¢”iå”·S\n\n" NOR,
+	HIW "ãƒ•ç¤šç›½ç©”Fç©”ç¹·Mä»·ç¬µRçµµFçµµFMAÇaC\n\n"
+		"@æ®‰æŠ±Nåš@é“­é¸¬MXç·Må ™æa]ç…FAC\n\n" NOR,
 });
 
 void create()
 {
-	set_name("¥ÕµL±`", ({ "white gargoyle", "gargoyle" }) );
+	set_name("ãƒ•ç¤šç›½", ({ "white gargoyle", "gargoyle" }) );
 	set("long",
-		"¥ÕµL±`¦ùµÛªøªøªº¦ŞÀYÀüµÛ§A¡M¦º¥ÕªºÁy¤W¬İ¤£¥X¥ô¦ó³ß«ã«s¼Ö¡C\n");
+		"ãƒ•ç¤šç›½å¸å®³è˜©Yå‚ˆå¸AMäº¥æ‘˜æ¯«yWè¬ï¼…Xãƒ´èŸªæ”‰æƒ¬sè´¾C\n");
 	set("attitude", "peaceful");
 	set("chat_chance", 15);
 	set("chat_msg", ({
 		(: this_object(), "random_move" :),
-		"¥ÕµL±`µo¥X¤@°}¹³©D§uªºÁn­µ¡M·í¥Lµo²{§A¥¿ª`µøµÛ¥Lªº®É­Ô¡MÀü¤F§A¤@²´¡C\n",
-		"¥ÕµL±`§âªøªøªº¦ŞÀY¦ù¥X¨Ó¡M½w½w¦a»Q¤F»Q¦Û¤v¤S¥Õ¤Sªøªº¤â«ü¡C\n"
+		"ãƒ•ç¤šç›½ç¥‡X@çššé’©ã€¥uæ¯«næ€ Mè®½Lç¥‡ç·Aã‚¿çŒ”è·Œå¸Lå¯’æ£®æµ´Må‚ˆFA@æ³ŠC\n",
+		"ãƒ•ç¤šç›½Ñ€å®³è˜©YXã„“Mçµ¯çµ¯aç±•Fç±•éƒ…vSãƒ•Sæ°¦çŒ¥C\n"
 	}) );
 	set("age", 217);
 	set("combat_exp", 20000);
@@ -58,8 +58,8 @@ void death_stage(object ob, int stage)
 
 	ob->move(REVIVE_ROOM);
 	message("vision",
-		"§A©¿µMµo²{«e­±¦h¤F¤@­Ó¤H¼v¡M¤£¹L¨º¤H¼v¤S¦n¹³¤w¸g¦b¨º¸Ì\n"
-		"«Ü¤[¤F¡M¥u¬O§A¤@ª½¨SµoÄ±¡C\n", environment(ob), ob);
+		"Aâ”›ç¤›ç¥‡ç·ç¡å®hF@å©´Hç´‡Mãƒç­ÃªHç´‡Sné’©wç«’bÃªæŸ‘\n"
+		"åŸ­[FMuçŒA@å»ºSç¥‡è°‹C\n", environment(ob), ob);
 }
 
 

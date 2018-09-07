@@ -6,19 +6,19 @@ inherit SWORD;
 
 void create()
 {
-	set_name("»aµ³¼C", ({ "whitethorn sword", "whitethorn", "sword" }) );
+	set_name("ç±¥å…šç³ƒ", ({ "whitethorn sword", "whitethorn", "sword" }) );
 	set_weight(15000);
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("unit", "§â");
+		set("unit", "Ñ€");
 		set("long",
-			"³o¬O¤@§â³qÅé¦Ç¥Õªº­«¼C¡M¤W­±¥Íº¡¤F¦y¾Uªº­Ë¹_¡M¤D¬O³ì³±¬h®a\n"
-			"¾ú¥N¬Û¶ÇªºÄ_¼C¡M¾Ú»¡³o§â¼C±ş¤H¨£¦å¡M¥Ã»·¤£ªg±ş®ğ¡C\n");
+			"ç¡‚çŒ@Ñ€ç¡„ç °Î·ãƒ•æ¶µç³ƒMWé¥±ç§ƒÂ·Fyç¶°æ¶µæ–¯_MDçŒè¸Œæ½®ç±ç”¢\n"
+			"èŒNé„±ä»Ÿè€—_ç³ƒMæ²®å¼§ç¡‚Ñ€ç³ƒç‚³HÇï¹€Mãƒƒç¯ãƒçŒ¤ç‚³ç¨¹C\n");
 		set("value", 2400);
 		set("material", "greysteel");
-		set("wield_msg", "¥uÅ¥¨£¡uÄB¡v¦a¤@Án¡M$Nªº¤â¤¤¤w¸g¦h¤F¤@§â´H¥ú¥|®gªºÄ_¼C¢w¢w$n¡C\n");
-		set("unequip_msg", "$N±N¤â¤¤ªº$n´¡¤J¸y¶¡ªº¼CÀT¡C\n");
+		set("wield_msg", "ué’®Çuè…‚va@ç¾˜M$Næ°¦çŒ¡ã„wç«’hF@Ñ€ç¢’|ç”®è€—_ç³ƒww$nC\n");
+		set("unequip_msg", "$Nç›¢ã‚‚ã„$nç¡€Jç«¬ä¸æ­Cç¹²C\n");
 	}
 	init_sword(63);
 	setup();

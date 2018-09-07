@@ -1,4 +1,4 @@
-// Éñ»°ÊÀ½ç¡¤Î÷ÓÎ¼Ç¡¤°æ±¾£´£®£µ£°
+// ç¥è¯ä¸–ç•ŒÂ·è¥¿æ¸¸è®°Â·ç‰ˆæœ¬ï¼”ï¼ï¼•ï¼
 /* <SecCrypt CPL V3R05> */
  
 // force.c
@@ -19,10 +19,10 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 			damage = - damage;
 			me->receive_damage( "kee", damage * 2 );
 			me->receive_wound( "kee", damage );
-			if( damage < 10 ) return "$NÊÜµ½$nµÄÄÚÁ¦·´Õğª¬ÃÆºßÒ»Éù¡£\n";
-			else if( damage < 20 ) return "$N±»$nÒÔÄÚÁ¦·´Õğª¬¡¸ºÙ¡¹µØÒ»ÉùÍËÁËÁ½²½¡£\n";
-			else if( damage < 40 ) return "$N±»$NÒÔÄÚÁ¦Ò»Õğª¬ĞØàíÓĞÈçÊÜµ½Ò»¼ÇÖØ´¸ª¬Á¬ÍËÁËÎåÁù²½¢¦\n";
-			else return "$N±»$nµÄÄÚÁ¦Ò»Õğª¬ÑÛÇ°Ò»ºÚª¬Éí×ÓÏòáá·É³öÕÉĞí\¢¦¢¦\n";
+			if( damage < 10 ) return "$Nå—åˆ°$nçš„å†…åŠ›åéœ‡é—·å“¼ä¸€å£°ã€‚\n";
+			else if( damage < 20 ) return "$Nè¢«$nä»¥å†…åŠ›åéœ‡ã€Œå˜¿ã€åœ°ä¸€å£°é€€äº†ä¸¤æ­¥ã€‚\n";
+			else if( damage < 40 ) return "$Nè¢«$Nä»¥å†…åŠ›ä¸€éœ‡èƒ¸å›—æœ‰å¦‚å—åˆ°ä¸€è®°é‡é”¤è¿é€€äº†äº”å…­æ­¥â…µ\n";
+			else return "$Nè¢«$nçš„å†…åŠ›ä¸€éœ‡çœ¼å‰ä¸€é»‘èº«å­å‘å¾Œé£å‡ºä¸ˆè®¸\â…µâ…µ\n";
 		}
 		if( damage_bonus + damage < 0 ) return - damage_bonus;
 		return damage;

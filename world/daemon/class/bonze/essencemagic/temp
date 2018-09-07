@@ -6,24 +6,24 @@ inherit SSERVER;
 
 int conjure(object me, object target)
 {
-	if( target ) return notify_fail("ªÅÃÑ¯«³q¥u¯à¹ï¦Û¤v¨Ï¥Î¡C\n");
+	if( target ) return notify_fail("ç¶è¯¢ç¡„uå–™é“´éƒ…vã„ãƒC\n");
 	if( me->query("atman") < 50 )
-		return notify_fail("§AªºÆF¤O¤£°÷¡T\n");
+		return notify_fail("Aæµ©FOãƒé•‘T\n");
 	me->add("atman", -50);
 	me->receive_damage("gin", 50);
-	message_vision(HIY "$N½L½¥¦Ó®y¡M¶}©l¹B¥ÎªÅÃÑ¯«³qÀR«ä¤J©w ...\n" NOR, me);
+	message_vision(HIY "$Nçµƒæ¸Ï„ç•’Mç§¨ï¹ç¬²ãƒç¶è¯¢ç¡„ç¹°æµƒJï¹š ...\n" NOR, me);
 	if( random(me->query_skill("magic")) > (int)me->query_int() ) {
 		if( random(me->query("max_atman")) < (int)me->query("atman")/2 ) {
 			me->add("learned_points", 1);
-			write( HIR "§AÄ±±o¸£¤¤¤@¤ù²V¶Ã¡M§Aªº¼ç¯à­°§C¤F¡T\n" NOR );
+			write( HIR "Aè°‹çœ”ç¦ã„@ç¼ç¹MAæ­ç»¡å–¹å“€CFT\n" NOR );
 			return 1;
 		}
 		if( (int)me->query("potential") - (int)me->query("leanred_points") < 500 ) {
 			me->add("potential", random( (int)me->query_spi() / 5 ) + 1);
-			write( HIG "§Aªº¼ç¯à´£°ª¤F¡T\n" NOR );
+			write( HIG "Aæ­ç»¡å•»ï¼FT\n" NOR );
 			return 1;
 		}
 	}
-	write("¥i¬O§A¥uÄ±±o¤@µL©ÒÀò¡C\n");
+	write("içŒAuè°‹çœ”@ç¤šâ”®è‰C\n");
 	return 1;
 }

@@ -5,17 +5,17 @@
 int exert(object me, object target)
 {
 	if( me->is_fighting() )
-		return notify_fail("¾Ô°«¤¤¹B¥\\Àø¶Ë¡S§ä¦º¶Ü¡S\n");
+		return notify_fail("é©¹çŸ®ã„ç¬²\\åŠ±ç«¯SÑ‚æ†¾å ‹S\n");
 
 	if( (int)me->query("force") - (int)me->query("max_force") < 50 )
-		return notify_fail("§Aªº¯u®ð¤£°÷¡C\n");
+		return notify_fail("Aå‡½ué»ï¼é³ŒC\n");
 
 	if( (int)me->query("eff_kee") < (int)me->query("max_kee") / 2 )
-		return notify_fail("§A¤w¸g¨ü¶Ë¹L­«¡M¥u©È¤@¹B¯u®ð«K¦³¥Í©R¦MÀI¡T\n");
+		return notify_fail("Awç«’ç«¯ç­Muâ”¤@ç¬²ç—·çš¤KÎ¤ãƒã‘Mç¹§T\n");
 
-	write( HIW "§A¥þ¨­©ñÃP¡M§¤¤U¨Ó¶}©l¹B¥\\Àø¶Ë¡C\n" NOR);
+	write( HIW "AÅè¡©PMÐ“Uã„“ç§¨ï¹ç¬²\\åŠ±ç«¯C\n" NOR);
 	message("vision",
-		HIW + me->name() + "§¤¤U¨Ó¹B¥\\Àø¶Ë¡MÁy¤W¤@°}¬õ¤@°}¥Õ¡M¤£¤[¡M¦R¥X¤@¤f·ï¦å¡MÁy¦â¬Ý°_¨Ó¦n¦h¤F¡C\n" NOR,
+		HIW + me->name() + "Ð“Uã„“ç¬²\\åŠ±ç«¯Mç¾ªW@çššé…©@çššãƒ•Mãƒ[MRX@få‡¤ï¹€Mç¾ªï¸¹èŽ…_ã„“nhFC\n" NOR,
 		environment(me), me);
 
 	me->receive_curing("kee", 10 + (int)me->query_skill("force")/5 );

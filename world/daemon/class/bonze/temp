@@ -9,9 +9,9 @@ string ask_for_join();
 
 void create()
 {
-	set_name("¥È´¼©M©|", ({ "master bonze", "master", "bonze" }) );
+	set_name("ãƒˆé†‡ãï¹Ÿ", ({ "master bonze", "master", "bonze" }) );
 
-	set("gender", "¨k©Ê");
+	set("gender", "â•§â”¦");
 	set("age", 74);
 	set("attitude", "peaceful");
 	set("class", "bonze");
@@ -38,8 +38,8 @@ void create()
 	set("score", 9000);
 
 	set("inquiry", ([
-		"«c«×" : (: ask_for_join :),
-		"¥X®a" : (: ask_for_join :),
+		"ç" : (: ask_for_join :),
+		"Xç”¢" : (: ask_for_join :),
 	]) );
 
 	set_skill("staff", 100);
@@ -61,7 +61,7 @@ void create()
 	map_skill("force", "lotusforce");
 	map_skill("magic", "essencemagic");
 
-	create_family("¤s·Ï¦x", 26, "¦í«ù");
+	create_family("såºŸx", 26, "æ…");
 
 	setup();
 
@@ -80,29 +80,29 @@ string ask_for_join()
 	me = this_player();
 
 	if( (string)me->query("class")=="bonze" )
-		return "ªüÀ±ªû¦ò¡T§A§Ú¦P¬O¥X®a¤H¡M¦ó¬G¸ò¦ÑÓÔ¶}³oµ¥ª±¯º¡S\n";
-	if( (string)me->query("gender") != "¨k©Ê" )
-		return "ªüÀ±ªû¦ò¡T¤k¬I¥D¡M³o¸Ì¬O¦x¼q¡M½Ğ©p¨ì¥§±g¥h«c«×§a¡C\n";
+		return "è¾£ï¸±TAĞ¸PçŒXç”¢HMèŸ‹Gè›¤Ïé‡‰ç§¨ç¡‚å•æ‚²éª¸S\n";
+	if( (string)me->query("gender") != "â•§â”¦" )
+		return "è¾£ï¸±TkçDMç¡‚æŸ‘çŒxç´‚Må«ï¹‘æ¬¹ĞŸghçæ‹½aC\n";
 
 	me->set_temp("pending/join_bonze", 1);
-	return "ªüÀ±ªû¦ò¡Tµ½«v¡Tµ½«v¡T¬I¥D­Y¯u¤ß¬Ô¨Ì§Ú¦ò¡M½Ğ¸÷¤U(kneel)¨ü§Ù¡C\n";
+	return "è¾£ï¸±Tåˆ°ç½Tåˆ°ç½TçDç’ç—·ã¿æ¸ŠæŠ¬è®¦é¢‰Må«å„U(kneel)Ğ·C\n";
 }
 
 int do_kneel()
 {
 	string *prename =
-	 ({ "ªÅ", "©ú", "¶ê", "²b", "µê", "®©",
-		"¤è", "´ç", "¼z", "ªk" });
+	 ({ "", "", "è›¾", "ç“", "åº—", "",
+		"ã‚ˆ", "å¯¸", "ç´Œ", "çŒ­" });
 	string name, new_name;
 
 	if( !this_player()->query_temp("pending/join_bonze") ) return 0;
 	message_vision(
-		HIC "$NÂù¤â¦X¤Q¡M®¥®¥·q·q¦a¸÷¤F¤U¨Ó¡C\n\n"
-			"$n¦ù¥X¤â´x¡M¦b$NÀY³»»´»´¦a¼¯Õf¤F´X¤U¡M±N$NªºÀY¾vºÉ¼Æ«c¥h¡C\n\n" NOR,
+		HIC "$Nè›®ã‚‚XQMã‚®ã‚·qç©›aå„FUã„“C\n\n"
+			"$nXã‚‚ç£Mb$Nç¹·éƒ´æ·®æ·®aé›†èªªFç¢­UMç›¢$Nè±ªYç·‘è·è®¡çhC\n\n" NOR,
 		this_player(), this_object() );
 	name = this_player()->query("name");
 	new_name = prename[random(sizeof(prename))] + name[0..1];
-	command("say ±q¤µ¥H«á§Aªºªk¦W¥s°µ" + new_name + "¡C");
+	command("say çœ–ã•Hå²ŒAé‚¯kWsæš—" + new_name + "C");
 	command("smile");
 	this_player()->delete_temp("pending/join_bonze");
 	this_player()->set("name", new_name);
@@ -115,22 +115,22 @@ void attempt_apprentice(object ob)
 {
 	if( query("apprentice_available") ) {
 		if( find_call_out("do_recruit") != -1 )
-			command("say ºCµÛ¡M¤@­Ó¤@­Ó¨Ó¡C");
+			command("say ç¯Šå¸M@å©´@è¹å°C");
 		else
 			call_out("do_recruit", 2, ob);
 	} else {
-		command("say ¦Ñ¯Ç¤µ¤Ñ¤w¸g¦¬¤F¤Q­Ó§Ì¤l¡M¤£·Q¦A¦¬®{¤F¡C");
+		command("say Ïæ‰¦ä¸¹ç»šwç«’ÎœFQç¼¨è¸lMãƒç¨±AÎœç••FC");
 	}
 }
 
 void do_recruit(object ob)
 {
-	if( (string)ob->query("gender") != "¨k©Ê" )
-		command("say ªüÀ±ªû¦ò¡M¤k¬I¥D¤£­n¸ò¦Ñ¯Ç¶}ª±¯º¡C");
+	if( (string)ob->query("gender") != "â•§â”¦" )
+		command("say è¾£ï¸±MkçDãƒç’¶è›¤ÏåµŒ}æ‚²éª¸C");
 	else if( (string)ob->query("class") != "bonze" )
-		command("say ªüÀ±ªû¦ò¡M¬I¥DÄ@¤J¦òªù¡M½Ğ¥ı¨ì¤p¦x«c«×¥X®a¡C");
+		command("say è¾£ï¸±MçDè…€Jï¸±Må«æ¬·pxçæŠ“Xç”¢C");
 	else {
-		command("say ªüÀ±ªû¦ò¡Mµ½«v¡Tµ½«v¡T");
+		command("say è¾£ï¸±Måˆ°ç½Tåˆ°ç½T");
 		command("recruit " + ob->query("id") );
 	}
 }
@@ -146,9 +146,9 @@ int recruit_apprentice(object ob)
 int accept_fight(object me)
 {
 	if( (string)me->query("class")=="bonze" )
-		command("say ªüÀ±ªû¦ò¡T¥X®a¤H§Ù³x±j´c°«¡T¦ÑÓÔ¤£´±¹H¤Ï²M³W¡C");
+		command("say è¾£ï¸±TXç”¢HĞ·ç¡çœç¢¿çŸ®TÏé‡‰ãƒå¹¢ç¬»ã¯ç²ç C");
 	else
-		command("say ¬I¥D¬JµM¨­­tµ´ÃÀ¡M¦ÑÓÔ¨ØªA«K¬O¡M¤]¤£¥²¸û¶q¤F¡C");
+		command("say çDç‚ç¤›Åç’½è¡ç¾MÏé‡‰ã„˜ç‹ç½çŒM]ãƒã‚²è€•ç§–FC");
 	
 	return 0;
 }

@@ -4,13 +4,13 @@ inherit ROOM;
 
 void create()
 {
-	set("short", "¤u§@¶i«×Â²³ø«Ç");
+	set("short", "u@ç§ˆèŒæ¸¤");
 	set("long", @LONG
-³o¸Ì¬O§Å®v­Ì³ø§i¦Û¤v¤u§@¶i«×ªºÂ²³ø«Ç¡M¦P®É¤]¬O¤j§Å®v§ì¤½®t
-ªº®Ú¾Ú¡M¦pªG§A¦³¤u§@°µ¡M³Ì¦n±`±`¨ì³o¸Ì§ó·s§Aªº¤u§@¶i«×¡M¦pªG¤Ó
-¤[¨S¦³¬Ý¨ì§Aªº¤u§@¶i«×³ø§i¡M¤j§Å®v­Ì·|¥H¬°¥H¨S¨Æ°µ¦Ó«ü¬£¤u§@µ¹
-¡M­n¬O§A¤´µM¤£²z¡M¤]¦³¥i¯à·|³Q°²³]¦¨¤w¸g©ñ±ó§Å®vªº¤u§@¦Ó­°¦^ª±
-®a¨­¤À¡C
+ç¡‚æŸ‘çŒå¥³vå›iéƒ…vu@ç§ˆè½¬éƒæ¸¤æ°MPå—“]çŒjå¥³vÑŠãç•‰
+å¯’è¯°å‡‡Mpç‹¦AÎ¤u@æš—Mç¨‹nç›½ç›½æ–oæŸ‘è “sAæ°¦u@ç§ˆä½Mpç‹¦ã³
+[âŠ¿Î¤èŽ°æ­†Aæ°¦u@ç§ˆå£®iMjå¥³vè°­|Hå“ŽHâŠ¿ã„†æš—Ï„ï¿¥u@å€’
+Mç’¶çŒAã”ç¤›ãƒçž¶M]Î¤iå–¾|ç †å®‰ç žÎ˜wç«’ç™–èž«å¥³væ°¦u@Ï„å”‰^
+ç”¢Åã C
 LONG
 	);
 	set("exits", ([ /* sizeof() == 1 */

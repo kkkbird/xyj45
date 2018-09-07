@@ -8,7 +8,7 @@ void skill_improved(object me)
 
         s = me->query_skill("incarnation", 1);
         if( (int)me->query("spi") < s/5) {
-                tell_object(me, HIW "ÓÉì¶ÄãÇÚÁ·ÐÞÏÉÊõ£¬ÄãµÄÁéÐÔÌá¸ßÁË¡£\n" NOR);
+                tell_object(me, HIW "é¢è¾¨æŸ¤æµ£çŠ²å«Ÿç¼å†§æ…¨æµ æ¬æ¹³é”›å±¼ç¶˜é¨å‹­ä¼’éŽ¬Ñ„å½æ¥‚æ¨¹ç°¡éŠ†ä¿“n" NOR);
                 me->add("spi", 1);
         }
 }

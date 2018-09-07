@@ -4,17 +4,17 @@ inherit NPC;
 
 void create()
 {
-	set_name("¾ö¤Ò", ({ "woodcutter" }) );
-	set("gender", "¨k©Ê" );
+	set_name("å†³ã²", ({ "woodcutter" }) );
+	set("gender", "â•§â”¦" );
 	set("age", 26);
-	set("long", "§A¬İ¨ì¤@­Ó²Ê§§ªº¤jº~¡M¨­¤W¬ïµÛ´¶³q¾ö¤Òªº¦çªA¡C\n");
+	set("long", "Aè°æ¬·@ç¡¬å¤±Ğ˜æ°¦jç°™MÅWé”é„å†»qå†³ã²å®³ç»AC\n");
 	set("combat_exp", 140);
 	set("str", 30);
 	set("chat_chance", 15);
 	set("chat_msg", ({
-		"¾ö¤Ò»¡¹D¡R³¥¦Ï¤s¨º¸s¯ä¹D¤h¯u¬O¸Ó¤d¤M¸UÔl....\n",
-		"¾ö¤Ò»¡¹D¡R¤£ª¾¹D¨º¨Ç¤û»ó¤l¬I¤F¤°»ò§¯ªk¡M«e¤Ñ¦^®a®tÂI°g¤F¸ô¡C\n",
-		"¾ö¤Ò»¡¹D¡R­ü....¤é¤l¶V¨Ó¶V¤£¦n¹LÅo¡C\n",
+		"å†³ã²å¼§ç¬µRå¿Î¿sÃªç«¤æ¶”Dhç—·çŒèµ£dMçª¾è©Œ....\n",
+		"å†³ã²å¼§ç¬µRãƒç«ŸDÃªã„‡æƒ‘lçFãæˆ–ĞçŒ­Mç¡ã±^ç”¢ç•‰ç¿´ç™µFéš”C\n",
+		"å†³ã²å¼§ç¬µR....ã‚‰lç¦«ã„“ç¦«ãƒnç­èˆ˜C\n",
 		(: random_move :)
 	}) );
 	set("env/wimpy", 10);

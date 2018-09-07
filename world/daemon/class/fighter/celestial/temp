@@ -10,10 +10,10 @@ int exert(object me, object target)
 	int i, skill, damage;
 
 	if( !me->is_fighting() )
-		return notify_fail("¤Ñ¨¸ªê¼S¥u¯à¦b¾Ô°«¤¤¨Ï¥Î¡C\n");
+		return notify_fail("ã±Çœæ˜™Suå”³bé©¹çŸ®ã„ã„ãƒC\n");
 
 	if( (int)me->query("force") < 150 )
-		return notify_fail("§Aªº¤º¤O¤£°÷¡C\n");
+		return notify_fail("Aæ°¦æ°¦Oãƒé•‘C\n");
 
 	skill = me->query_skill("force");
 
@@ -22,7 +22,7 @@ int exert(object me, object target)
 
 	me->start_busy(5);
 	message_vision(
-		HIR "$N²`²`¦a§l¤@¤f®ğ¡M¶}©lµo¥X¦³¦p²rªê¯ëªº¼SÁn¡T\n" NOR, me);
+		HIR "$Nççal@fç¨¹Mç§¨ï¹ç¥‡XÎ¤pç¨æˆ¬æ°‡æ­Sç¾˜T\n" NOR, me);
 
 	ob = all_inventory(environment(me));
 	for(i=0; i<sizeof(ob); i++) {
@@ -34,7 +34,7 @@ int exert(object me, object target)
 			ob[i]->receive_damage("sen", damage);
 			if( (int)ob[i]->query("force") < skill * 2 )
 				ob[i]->receive_wound("sen", damage/2);
-			tell_object(ob[i], "§AÄ±±o²´«e¤@°}ª÷¬P¶Ã«_¡M¦Õ¦·µh±o¹³¬O­nµõ¶}¤@¼Ë¡T\n");
+			tell_object(ob[i], "Aè°‹çœ”æ³Šç¡@çššé³œPç¹ç™MÏ†Î¨ç¤¹çœ”é’©çŒç’¶åŠç§¨@å¦“T\n");
 		}
 		
 		if( userp(ob[i]) ) ob[i]->fight_ob(me);

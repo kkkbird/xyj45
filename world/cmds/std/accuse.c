@@ -45,7 +45,7 @@ int main(object me, string arg){
              }
         else{
                   if( obj->query_temp("accuser/"+getuid(me)) ){
-                       return notify_fail("ÄãÒÑ¾­ÔÚ¼ì¾Ù" + pro + "ÁË£¡¡ \n");
+                       return notify_fail("ÄãÒÑ¾­ÔÚ¼ì¾Ù" + pro + "ÁË£¡\n");
                   }
                   obj->set_temp("accuser/"+getuid(me), me->name() );
                   if( sizeof(obj->query_temp("accuser"))>4 ){
@@ -78,7 +78,7 @@ int help(object me)
 write(@HELP
 Ö¸Áî¸ñÊ½ : accuse <Ä³ÈË>
 
-Õâ¸öÖ¸ÁîÓÃÀ´¼ì¾Ù±ðÈË»úÆ÷ÈË£¬²»¹ýÒªÓÐÊ®ÄêµÄµÀÐÐ¡£Çë½÷É÷Ê¹ÓÃÕâÒ
+Õâ¸öÖ¸ÁîÓÃÀ´¼ì¾Ù±ðÈË»úÆ÷ÈË£¬²»¹ýÒªÓÐÊ®ÄêµÄµÀÐÐ¡£Çë½÷É÷Ê¹ÓÃÕâ
 Ò»Ö¸Áî¡£¼ì¾Ù×Ü´ÎÊý²»¿É³¬¹ýµÀÐÐÄêÊýµÄÒ»°ë¡£ÀÄÓÃÕß½«±»ÊÓÎª¹ÊÒâ
 µ·ÂÒ£¬´òÈë¹«ÌÃ£¡£¡£¡
 
