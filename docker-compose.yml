@@ -1,0 +1,32 @@
+version: '3'
+services:
+  mudlib:
+    restart: unless-stopped
+    image: kaiserli/mudlib:v1
+    ports:
+    - "48556:5555"    
+    command:
+    - "/fluffos/mudlib/config.xyj45"
+    volumes:
+    - "./world:/fluffos/mudlib"
+    - "./data:/fluffos/mudlib/data"
+    - "./log:/fluffos/mudlib/log"
+
+  webmud:
+    restart: unless-stopped
+    image: kaiserli/webmud:v1
+    ports:
+    - "48082:8080"
+    command:
+    - "./main.js"
+    - "8080"
+    - "5555"
+    - "-w"
+    - "./www"
+    - "-h"
+    - "mudlib"
+    - "-m" 
+    - "/mudlib"
+    volumes:
+    - "./www:/webmud/www"
+    - "./world:/mudlib"
