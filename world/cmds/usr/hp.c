@@ -28,6 +28,8 @@ int main(object me, string arg)
      return notify_fail("只有巫师能察看别人的状态。\n");
  
    my = ob->query_entire_dbase();
+
+   printf("▼ " BOLD "%s" NOR "%s\n", RANK_D->query_rank(ob), ob->short(1) );
  
     printf(" 魂魄： %s%4d/ %4d %s(%3d%%)" NOR "    灵力： %s%4d / %4d (+%d)\n" NOR,
      status_color(my["gin"], my["eff_gin"]),   my["gin"],   my["eff_gin"],

@@ -43,8 +43,8 @@ int main(object me, string arg)
 
         my = ob->query_entire_dbase();
 
-        line = sprintf( BOLD "%s" NOR "%s\n\n", RANK_D->query_rank(ob),
-ob->short(1) );
+        line = sprintf("▼ " BOLD "%s" NOR "%s\n", RANK_D->query_rank(ob), ob->short(1) );
+
    if( ob->query("fake_age")){
            line += sprintf(" 你是一%s%s岁的%s%s，%s生。\n",
                    ob->query("unit"),

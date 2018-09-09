@@ -633,8 +633,8 @@ varargs void enter_world(object ob, object user, int silent)
    cloth->wear();
 */
         if( !silent ) {
-           if(file_size(MOTD)>0)
-                  user->start_more(read_file(MOTD),1);
+        //    if(file_size(MOTD)>0)
+        //           user->start_more(read_file(MOTD),1);
      if( user->is_ghost() )
         startroom = DEATH_ROOM;
      else if( strlen(startroom = user->query("startroom"))<2 )

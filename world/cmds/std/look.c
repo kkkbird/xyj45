@@ -117,10 +117,11 @@ int look_room(object me, object env)
      write("你的四周灰蒙蒙地一片，什么也没有。\n");
      return 1;
    }
-   str = sprintf( "\n▲ %s - %s\n    %s%s",
+   str = sprintf( "\n▲ %s - %s\n    %s\n%s",
      env->query("short")?env->query("short"): "",
      wizardp(me)? file_name(env): "",
-     env->query("long")? env->query("long"): "\n",
+     //env->query("long")? env->query("long"): "\n",
+     env->query("long")? replace_string( env->query("long"), "\n", ""):"",
      env->query("outdoors")? NATURE_D->outdoor_room_description() : "" );
 
    if( mapp(exits = env->query("exits")) ) {
@@ -157,10 +158,13 @@ int look_room(object me, object env)
 
 int look_item(object me, object obj)
 {
+  string str;
    mixed *inv;
-
-//   write(obj->long());
-   me->start_more(obj->long());
+   
+   str = sprintf( "\n◆ %s\n%s\n", obj->short(), replace_string(obj->long(), "\n", "") );
+   //me->start_more(obj->long());
+   me->start_more(str);
+   
    inv = all_inventory(obj);
    if( sizeof(inv) ) {
      inv = map_array(inv, "inventory_look", this_object() );
@@ -252,14 +256,15 @@ int look_living(object me, object obj)
    if( me!=obj && obj->visible(me) )
      message("vision", me->name() + "正盯着你看，不知道打些什么主意。\n", obj);
 
-   str = obj->long();
+    //str = obj->long();
+   str = sprintf( "\n▼ %s\n%s\n", obj->short(), replace_string(obj->long(), "\n", "") );
 
    str = replace_string(str, "$n", me->name());
    str = replace_string(str, "$N", obj->name());
-    str = replace_string(str, "$C", RANK_D->query_respect(obj));
-    str = replace_string(str, "$c", RANK_D->query_rude(obj));
+   str = replace_string(str, "$C", RANK_D->query_respect(obj));
+   str = replace_string(str, "$c", RANK_D->query_rude(obj));
    str = replace_string(str, "$R", RANK_D->query_respect(me));
-   str = replace_string(str, "$r", RANK_D->query_rude(me));
+   str = replace_string(str, "$r", RANK_D->query_rude(me));  
 
 
    pro = (obj==me) ? gender_self(ogender) : gender_pronoun(ogender);
@@ -398,9 +403,9 @@ int look_room_item(object me, string arg)
 
    if( mapp(item = env->query("item_desc")) && !undefinedp(item[arg]) ) {
      if( stringp(item[arg]) )
-        write(item[arg]);
+        write("※ "+item[arg]);
      else if( functionp(item[arg]) )
-        write((string)(*item[arg])(me));
+        write("※ "+(string)(*item[arg])(me));
         
      return 1;
    }
