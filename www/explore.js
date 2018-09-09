@@ -41,7 +41,7 @@ var EXPLORE_CMDS = [
 
   ['吃', 'eat $item', 'explore'],
   ['喝', 'drink $item', 'explore'],
-  ['问', 'ask $char', 'explore'],
+  ['问', 'ask $char about $item', 'explore'],
   ['偷', 'steal $item from $char', 'warn'],
   ['兑换', 'convert $item', 'explore'],
   ['状态', 'hp $char', 'status,varargs'],
