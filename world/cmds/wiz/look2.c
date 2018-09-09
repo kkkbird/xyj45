@@ -356,6 +356,10 @@ int look_living(object me, object obj)
         str += sprintf( obj->is_corpse() ? "%s的遗物有：\n%s\n" : "%s身上带着：\n%s\n",
           pro, implode(inv, "\n") );
    }
+
+     if( mapp(obj->query("vendor_goods")) ) {
+    str += obj->get_vendor_list();
+  }
         
    }
 

@@ -166,7 +166,8 @@ function addTopicLinks(str, type) {
 
 var ROOM_MARK = '▲ ', CHAR_MARK = '▼ ', ITEM_MARK = '◆ ', ITEM_DESC_MARK = '※ ';
 var TELNET_MARK = 'ﺢ탿퟿떿놿ﻉ';
-var INV_MARK = '带著下列这些东西', SKILLS_MARK = '目前所学过的技能', ASK_MARK = '你可以打听这些事情';
+var INV_MARK = '带着下列这些东西', SKILLS_MARK = '目前所掌握的技能', ASK_MARK = '你可以打听这些事情';
+var BUY_MARK = '购买下列这些东西'; //todo: add by mask
 var LOGIN_MARK = '您的英文名字：', PASS_MARK = '请输入密码：';
 var SMILEY_MARK = '：/';
 var askingLogin = false, askingPass = false, autologin = false;
@@ -191,16 +192,13 @@ function writeServerData(buf) {
   } else if(str.indexOf(ITEM_DESC_MARK) >= 0) {
     str = addTargetLinks(str, 'cmdv');
     return writeToScreen(str);
-
   } else if(str.indexOf(INV_MARK) >= 0) {
     $('div#out2').html('');
     str = addTargetLinks(str, 'look');
     return writeToScreen(str, 2);
-
   } else if(str.indexOf(ASK_MARK) >= 0) {
     str = addTopicLinks(str, 'ask');
     return writeToScreen(str, 2);
-
   } else if(str.indexOf(SKILLS_MARK) >= 0) {
     $('div#out2').html('');
     str = addTargetLinks(str, 'skill');

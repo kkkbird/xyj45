@@ -115,12 +115,13 @@ string price_string(int v)
      return str;
 }
 
-int do_vendor_list(string arg)
+
+string get_vendor_list(string arg)
 {
-   mapping goods;
-   string list, *name;
-   int i;
-   string tlist;
+  mapping goods;
+  string list, *name;
+  int i;
+  string tlist;
 
    if( !mapp(goods = query("vendor_goods")) ) return 0;
    if( arg && !this_object()->id(arg) ) return 0;
@@ -131,10 +132,18 @@ int do_vendor_list(string arg)
      list += sprintf("%-30s：%s\n", tlist,
         price_string(goods[name[i]]->query("value")
           *price_ratio/10 ));
-        }
-   write(list);
-   return 1;   
+  }        
+  return list;
 }
+
+int do_vendor_list(string arg)
+{
+    string list;
+    list = get_vendor_list(arg);
+    if(list && stringp(list)) write(list);
+    return 1;
+}
+
 
 void init()
 {
