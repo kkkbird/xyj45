@@ -1883,6 +1883,7 @@ var mapdata =
     },
     "/d/death/gate": {
       "type": "ROOM",
+      "short": "阴阳界",
       "exits": {
         "south": "/d/death/new-out2",
         "north": "/d/death/new-out6",
